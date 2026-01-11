@@ -1,0 +1,38 @@
+# ---- Python / venv ----
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.coverage
+coverage.xml
+htmlcov/
+dist/
+build/
+*.egg-info/
+pip-wheel-metadata/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- INDI / temp ----
+# Named pipes shouldn't be committed (if you ever create in-repo FIFOs)
+*.fifo
+
+# ---- SEESTAR_ALP ----
+seestar_alp/
+
+# Local config (keep example config tracked)
+seestar_alp/device/config.toml
+seestar_alp/device/config.toml.bak
+seestar_alp/logs/
