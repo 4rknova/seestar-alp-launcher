@@ -69,14 +69,14 @@ source .venv/bin/activate
 
 echo "[i] Python: $(python -V)"
 echo "[i] Upgrading pip tooling"
-python -m pip install -U pip setuptools wheel
+python3 -m pip install -U pip setuptools wheel
 
 # --- Install pyINDI fork ---
 echo "[i] Installing pyINDI fork"
-python -m pip install "git+https://github.com/stefano-sartor/pyINDI.git"
+python3 -m pip install "git+https://github.com/stefano-sartor/pyINDI.git"
 
 # --- Fix indi.dtd path inside venv ---
-PURELIB="$(python -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')"
+PURELIB="$(python3 -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')"
 DEVICE_DIR="$PURELIB/pyindi/device"
 DTD_SRC="$PURELIB/pyindi/data/indi.dtd"
 DTD_EXPECTED="$DEVICE_DIR/data/indi.dtd"
@@ -96,12 +96,12 @@ if [[ ! -f "$DTD_EXPECTED" ]]; then
   exit 1
 fi
 
-python -c "import pyindi.device; print('pyindi.device import OK')"
+python3 -c "import pyindi.device; print('pyindi.device import OK')"
 
 # --- Install seestar_alp requirements (if present) ---
 echo "[i] Installing seestar_alp requirements (if available)"
 if [[ -f "$REPO_DIR/requirements.txt" ]]; then
-  python -m pip install -r "$REPO_DIR/requirements.txt"
+  python3 -m pip install -r "$REPO_DIR/requirements.txt"
 else
   echo "[i] No requirements.txt found in $REPO_DIR (skipping)"
 fi
