@@ -85,6 +85,7 @@ popd >/dev/null
 
 echo "[i] Launching root_app.py"
 pushd "$APP_DIR" >/dev/null
+
+echo open client http://127.0.0.1:5432
 python3 root_app.py
 popd >/dev/null
-
